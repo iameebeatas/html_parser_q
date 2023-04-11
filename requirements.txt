@@ -7,3 +7,4 @@ pyautogui==0.9.53
 openpyxl==3.1.1
 datetime==5.0
 ddddocr==1.4.7
+beautifulsoup4==4.12.2
