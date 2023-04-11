@@ -28,7 +28,7 @@ jobs:
     - name: Lint with flake8
       run: |
         mkdir ./image_path
-        python ./html_parser.py
+        python ./html_parser.py  --headless=1
     - name: push
       run: |
         git config --local user.name github-actions[bot]
