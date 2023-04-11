@@ -284,16 +284,16 @@ class html_parser:
         # location_once_scrolled_into_view 拿到的是相对于可视区域的坐标;  
         # location 拿到的是相对整个html页面的坐标
 
-        # captchaX = int(captchaElem.location['x']) # x坐标
-        # captchaY = int(captchaElem.location['y']) # y坐标
-        captchaX = 283 # x坐标
-        captchaY = 676 # y坐标
+        captchaX = int(captchaElem.location['x']) # x坐标
+        captchaY = int(captchaElem.location['y']) # y坐标
+#         captchaX = 283 # x坐标
+#         captchaY = 676 # y坐标
         print('元素左上角' , 'x坐标' , captchaX,'y坐标',captchaY)
         # 获取验证码宽高
-        # captchaWidth = captchaElem.size['width']
-        # captchaHeight = captchaElem.size['height']
-        captchaWidth = 540
-        captchaHeight = 182
+        captchaWidth = captchaElem.size['width']
+        captchaHeight = captchaElem.size['height']
+#         captchaWidth = 540
+#         captchaHeight = 182
         print('x坐标宽' , captchaWidth,'y坐标高',captchaHeight)
         captchaRight = captchaX + captchaWidth
         captchaBottom = captchaY + captchaHeight
