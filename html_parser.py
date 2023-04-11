@@ -287,7 +287,7 @@ class html_parser:
 #         captchaX = int(captchaElem.location['x']) # x坐标
         captchaY = int(captchaElem.location['y']) # y坐标
 #         captchaX = 283 # x坐标
-        captchaX = 266 # x坐标
+        captchaX = 267 # x坐标
 #         captchaY = 676 # y坐标
         print('元素左上角' , 'x坐标' , captchaX,'y坐标',captchaY)
         # 获取验证码宽高
