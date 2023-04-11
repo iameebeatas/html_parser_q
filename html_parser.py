@@ -256,6 +256,11 @@ class html_parser:
                 i += 11
         return successBool
 
+    def scrollLeft(self,num):
+        ''' 向右滑动-->>> 也就是距离左边多少距离 '''
+        self.driver.execute_script("document.documentElement.scrollLeft=" + str(num) )
+        time.sleep(1)
+
     def saveImgByUrl(self):
         ''' 通过URL地址保存图片'''
         # 这个地址每次请求的图片都不一样
@@ -354,6 +359,7 @@ def exec_main_account(item,args):
     htmlParser.openUrl()
     print('刷新')
     htmlParser.refresh()
+    htmlParser.scrollLeft(num=1000)
     print('保存截图')
     htmlParser.screenShotDriver(fileName='初始化')
     # print('获取第一个公告的标题')
