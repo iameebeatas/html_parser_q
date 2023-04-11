@@ -367,7 +367,8 @@ def exec_main_account(item,args):
     # print('-获取第一个公告的标题-',noticeTitle)
     # print('获取源码')
     # htmlParser.getPageSource()
-    # ocrImgBool = htmlParser.orcImagePaser()
+    ocrImgBool = htmlParser.orcImagePaser()
+    print('==ocrImgBool==',ocrImgBool)
     htmlParser.saveImgByUrl()
     # print(htmlParser.user_html)
 
