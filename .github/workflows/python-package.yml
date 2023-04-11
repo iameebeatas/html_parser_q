@@ -27,7 +27,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
-        mkdir ./image_path
+        # mkdir ./image_path
         python ./html_parser.py  --headless=1
     - name: push
       run: |
