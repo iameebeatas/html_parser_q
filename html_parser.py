@@ -292,7 +292,7 @@ class html_parser:
         captchaY = int(captchaElem.location['y']) # y坐标
 #         captchaX = 283 # x坐标
 #         captchaX = 366 # x坐标
-        captchaX = 466 # x坐标
+        captchaX = 468 # x坐标
 #         captchaY = 676 # y坐标
         print('元素左上角' , 'x坐标' , captchaX,'y坐标',captchaY)
         # 获取验证码宽高
@@ -320,6 +320,8 @@ class html_parser:
         _save_url = './image_path/'
         yanzhengma_file_name = str(_file_name) + '-' + str(self.headless) + '-' + '验证码.png'
         imgCaptcha.save(_save_url + yanzhengma_file_name)
+        print('--展示验证码图片-')
+        imgCaptcha.show()
         return  _save_url + yanzhengma_file_name
 
 
