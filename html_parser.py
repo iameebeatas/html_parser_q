@@ -22,6 +22,7 @@ import urllib.parse
 # import optparse
 import argparse
 # import traceback
+import traceback
 from selenium.webdriver.common.action_chains  import ActionChains
 
 import os
@@ -243,6 +244,7 @@ class html_parser:
                 imgOcrUrlMake = self.saveImgByUrl()
                 imgCode = self.ocrImgUrl(imgOcrUrlMake)
                 print('识别出来的验证码',imgCode,len(imgCode) )
+                successBool = True
                 i += 11
                 # 验证码成功
                 # <label id="checkResult" class="checkTrue"><img src="https://xkczb.jtw.beijing.gov.cn/templates/default/www/images/note_yes.gif"></label>
@@ -252,7 +254,9 @@ class html_parser:
                 # 验证码不足位数
                 # <label id="checkResult"></label>
 
-            except:
+            except Exception as e:
+                errInfo = traceback.format_exc()
+                print('--errInfo--',errInfo)
                 i += 11
         return successBool
 
