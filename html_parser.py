@@ -254,8 +254,13 @@ class html_parser:
                     sleep(1)
                     codeIsPass = self.driver.find_element(By.XPATH, '//label[@id="checkResult"]').get_attribute('class')  # 验证码是否正确
                     print('-codeIsPass-',codeIsPass)
-                    successBool = True
-                    i += 11
+                    if codeIsPass == 'checkTrue' :
+                        successBool = True
+                        i += 11
+                    else :
+                        self.driver.find_element(By.XPATH, '//label[@id="getValidCode"]').click()  # 验证码获取
+                        sleep(3)
+                        i += 1
                 else :
                     # <div class="float_left yzm"><label id="getValidCode" class="validCodeImg" title="单击刷新验证码"><img src="https://apply.jtw.beijing.gov.cn/apply/app/common/validCodeImage?ee=2"></label></div>
                     self.driver.find_element(By.XPATH, '//label[@id="getValidCode"]').click()  # 验证码获取
