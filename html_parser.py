@@ -317,8 +317,8 @@ class html_parser:
         imgCaptcha = imgObject.crop((captchaX, captchaY, captchaRight, captchaBottom))  # 裁剪
         # imgCaptcha=imgCaptcha.convert('RGB')
         # https://cuiqingcai.com/202291.html
-        # convertStr = 'L'
-        convertStr = '1'
+        convertStr = 'L'
+        # convertStr = '1'
         # imgCaptcha = imgCaptcha.convert('L')
         imgCaptcha = imgCaptcha.convert(convertStr)
         #threshold = 50
@@ -329,10 +329,20 @@ class html_parser:
 
 
 
-        _file_name = 1222
+        _file_name = 'hhhh'
         _save_url = './image_path/'
-        yanzhengma_file_name = str(_file_name) + '-' + str(self.headless) + '-' +str(convertStr) + '-' + '验证码.png'
+        yanzhengma_file_name = str(_file_name) + '-' + str(self.headless) + '-' +str(convertStr) + '-' + '灰度-验证码.png'
         imgCaptcha.save(_save_url + yanzhengma_file_name)
+        
+        # 灰度过后再二值化
+        imgErObject = Image.open(_save_url + yanzhengma_file_name)  #获得截屏的图片
+        convertStr = '1'
+        imgErObject = imgErObject.convert(convertStr)
+        _file_name = 2222
+        _save_url = './image_path/'
+        yanzhengma_file_name = str(_file_name) + '-' + str(self.headless) + '-' +str(convertStr) + '-' + '-二值化-验证码.png'
+        imgCaptcha.save(_save_url + yanzhengma_file_name)
+        
 #         print('--展示验证码图片-')
 #         imgCaptcha.show()
         return  _save_url + yanzhengma_file_name
