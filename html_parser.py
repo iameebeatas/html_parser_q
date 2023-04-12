@@ -318,7 +318,7 @@ class html_parser:
         # imgCaptcha=imgCaptcha.convert('RGB')
         imgCaptcha = imgCaptcha.convert('L')
         threshold = 50
-        array = np.array(image)
+        array = np.array(imgObject)
         array = np.where(array > threshold, 255, 0)
         imgCaptcha = imgCaptcha.fromarray(array.astype('uint8'))
 
