@@ -317,7 +317,10 @@ class html_parser:
         imgCaptcha = imgObject.crop((captchaX, captchaY, captchaRight, captchaBottom))  # 裁剪
         # imgCaptcha=imgCaptcha.convert('RGB')
         # https://cuiqingcai.com/202291.html
-        imgCaptcha = imgCaptcha.convert('L')
+        # convertStr = 'L'
+        convertStr = '1'
+        # imgCaptcha = imgCaptcha.convert('L')
+        imgCaptcha = imgCaptcha.convert(convertStr)
         #threshold = 50
         #array = np.array(imgCaptcha)
         #array = np.where(array > threshold, 255, 0)
@@ -328,7 +331,7 @@ class html_parser:
 
         _file_name = 1222
         _save_url = './image_path/'
-        yanzhengma_file_name = str(_file_name) + '-' + str(self.headless) + '-' + '验证码.png'
+        yanzhengma_file_name = str(_file_name) + '-' + str(self.headless) + '-' +str(convertStr) + '-' + '验证码.png'
         imgCaptcha.save(_save_url + yanzhengma_file_name)
 #         print('--展示验证码图片-')
 #         imgCaptcha.show()
