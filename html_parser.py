@@ -390,7 +390,7 @@ def exec_main_account(item,args):
     htmlParser.openUrl()
     print('刷新')
     htmlParser.refresh()
-    htmlParser.scrollLeft(num=1000)
+    
     print('保存截图')
     htmlParser.screenShotDriver(fileName='初始化')
     # print('获取第一个公告的标题')
@@ -398,6 +398,7 @@ def exec_main_account(item,args):
     # print('-获取第一个公告的标题-',noticeTitle)
     # print('获取源码')
     # htmlParser.getPageSource()
+    htmlParser.scrollLeft(num=1000)
     ocrImgBool = htmlParser.orcImagePaser()
     print('==ocrImgBool==',ocrImgBool)
     htmlParser.saveImgByUrl()
