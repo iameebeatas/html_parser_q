@@ -319,7 +319,7 @@ class html_parser:
         _save_url = './image_path/'
         yanzhengma_file_name = str(_file_name) + '-' + str(self.headless) + '-' + '验证码.png'
         imgCaptcha.save(_save_url + yanzhengma_file_name)
-        return  yanzhengma_file_name
+        return  _save_url + yanzhengma_file_name
 
 
 
