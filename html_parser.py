@@ -37,6 +37,8 @@ import ddddocr
 # python3 -m pip uninstall ddddocr
 # https://blog.csdn.net/weixin_55810728/article/details/125439425
 
+import numpy as np
+
 
 # html_parser.py
 # https://github.com/cxy-csx/little_red_book/blob/main/get_user_fire.py
@@ -314,14 +316,21 @@ class html_parser:
 
         imgCaptcha = imgObject.crop((captchaX, captchaY, captchaRight, captchaBottom))  # 裁剪
         # imgCaptcha=imgCaptcha.convert('RGB')
+        imgCaptcha = imgCaptcha.convert('L')
+        threshold = 50
+        array = np.array(image)
+        array = np.where(array > threshold, 255, 0)
+        imgCaptcha = imgCaptcha.fromarray(array.astype('uint8'))
+
+
 
 
         _file_name = 1222
         _save_url = './image_path/'
         yanzhengma_file_name = str(_file_name) + '-' + str(self.headless) + '-' + '验证码.png'
         imgCaptcha.save(_save_url + yanzhengma_file_name)
-        print('--展示验证码图片-')
-        imgCaptcha.show()
+#         print('--展示验证码图片-')
+#         imgCaptcha.show()
         return  _save_url + yanzhengma_file_name
 
 
