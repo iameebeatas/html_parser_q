@@ -245,9 +245,20 @@ class html_parser:
             try:
                 imgOcrUrlMake = self.saveImgByUrl()
                 imgCode = self.ocrImgUrl(imgOcrUrlMake)
-                print('识别出来的验证码',imgCode,len(imgCode) )
-                successBool = True
-                i += 11
+                imgLenCode = len(imgCode) 
+                print('识别出来的验证码',imgCode,imgLenCode )
+                if imgLenCode == 4 :
+                    
+                    codeInputObj = self.driver.find_element(By.XPATH, '//input[@class="biaodan2"]')  # 验证码输入框
+                    codeInputObj.send_keys(imgCode)
+                    sleep(1)
+                    codeIsPass = self.driver.find_element(By.XPATH, '//label[@id="checkResult"]').get_attribute('class')  # 验证码是否正确
+                    print('-codeIsPass-',codeIsPass)
+                    successBool = True
+                    i += 11
+                else :
+                    i += 1
+                
                 # 验证码成功
                 # <label id="checkResult" class="checkTrue"><img src="https://xkczb.jtw.beijing.gov.cn/templates/default/www/images/note_yes.gif"></label>
                 # 验证码失败
