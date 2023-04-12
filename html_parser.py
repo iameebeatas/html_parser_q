@@ -257,6 +257,9 @@ class html_parser:
                     successBool = True
                     i += 11
                 else :
+                    # <div class="float_left yzm"><label id="getValidCode" class="validCodeImg" title="单击刷新验证码"><img src="https://apply.jtw.beijing.gov.cn/apply/app/common/validCodeImage?ee=2"></label></div>
+                    self.driver.find_element(By.XPATH, '//label[@id="getValidCode"]').click()  # 验证码获取
+                    sleep(3)
                     i += 1
                 
                 # 验证码成功
