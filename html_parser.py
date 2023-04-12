@@ -316,11 +316,12 @@ class html_parser:
 
         imgCaptcha = imgObject.crop((captchaX, captchaY, captchaRight, captchaBottom))  # 裁剪
         # imgCaptcha=imgCaptcha.convert('RGB')
+        # https://cuiqingcai.com/202291.html
         imgCaptcha = imgCaptcha.convert('L')
-        threshold = 50
-        array = np.array(imgCaptcha)
-        array = np.where(array > threshold, 255, 0)
-        imgCaptcha = Image.fromarray(array.astype('uint8'))
+        #threshold = 50
+        #array = np.array(imgCaptcha)
+        #array = np.where(array > threshold, 255, 0)
+        #imgCaptcha = Image.fromarray(array.astype('uint8'))
 
 
 
