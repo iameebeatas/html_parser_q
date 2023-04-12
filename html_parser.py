@@ -320,7 +320,7 @@ class html_parser:
         threshold = 50
         array = np.array(imgCaptcha)
         array = np.where(array > threshold, 255, 0)
-        imgCaptcha = imgCaptcha.fromarray(array.astype('uint8'))
+        imgCaptcha = Image.fromarray(array.astype('uint8'))
 
 
 
